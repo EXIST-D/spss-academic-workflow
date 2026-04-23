@@ -45,6 +45,29 @@ spss-academic-workflow/
 - 当前 agent 客户端需要支持 MCP。SPSS-MCP 的自动配置命令面向 Claude Code；在 Codex 中使用时，请将等价 MCP server 配置接入 Codex，使其能够通过 `spss-mcp serve --transport stdio` 调用该服务。
 - 如果 SPSS 不能被自动检测，请按 SPSS-MCP 文档设置 `SPSS_INSTALL_PATH`；如启动或分析较慢，可设置 `SPSS_STARTUP_TIMEOUT` 或 `SPSS_TIMEOUT`。
 
+### Codex 兼容配置示例
+
+SPSS-MCP 上游文档主要面向 Claude Code；本仓库面向 Codex 使用场景。Codex 支持本地 STDIO MCP server，可在 `~/.codex/config.toml` 或受信任项目的 `.codex/config.toml` 中加入类似配置：
+
+```toml
+[mcp_servers.spss]
+command = "spss-mcp"
+args = ["serve", "--transport", "stdio"]
+startup_timeout_sec = 300
+tool_timeout_sec = 300
+```
+
+如果需要手动指定 SPSS 路径或超时时间，可加入：
+
+```toml
+[mcp_servers.spss.env]
+SPSS_INSTALL_PATH = "C:\\Program Files\\IBM\\SPSS Statistics\\31"
+SPSS_STARTUP_TIMEOUT = "300"
+SPSS_TIMEOUT = "300"
+```
+
+配置后重启 Codex，并在 Codex 的 MCP 状态界面确认 `spss` server 已启动。本项目作者已在 Codex + Windows + 本机 SPSS 环境下测试该工作流；其他环境请以 SPSS-MCP 上游支持范围和本机 SPSS 安装情况为准。
+
 ## 安装方式
 
 在 Codex 中使用 skill installer，并指向 GitHub 目录 URL：
@@ -76,6 +99,31 @@ Use $spss-academic-workflow to analyze this dataset with SPSS and produce Chines
 - `scripts/`：辅助脚本，包括保守的项目脚手架脚本。
 - `assets/`：LaTeX 论文、表格注释和结果段落模板。
 - `agents/openai.yaml`：可选的 Codex UI 元数据和调用策略。
+
+## 生成项目目录
+
+使用本 skill 处理具体实证项目时，默认会在用户指定的项目根目录下组织以下 `01` 到 `08` 目录：
+
+```text
+project-name/
+├── 01_source_data/
+├── 02_data_prep/
+├── 03_research_design/
+├── 04_spss_syntax/
+├── 05_analysis_output/
+├── 06_paper_draft/
+├── 07_submission_package/
+└── 08_project_admin/
+```
+
+- `01_source_data/`：保存原始数据、外部数据和数据来源说明；原始数据应保留在 `raw/`，不覆盖、不原地修改。
+- `02_data_prep/`：保存变量映射、清洗中间数据、最终分析数据和数据审计文件，例如 codebook、缺失值检查和描述统计摘要。
+- `03_research_design/`：保存研究问题、研究假设、变量设计、模型设计和样本规则。
+- `04_spss_syntax/`：保存 SPSS syntax，按数据清洗、变量构造、描述统计、主模型、稳健性和附录模型分组。
+- `05_analysis_output/`：保存分析输出，包括表格、图形、结果说明、运行日志和论文可直接引用的表格接口。
+- `06_paper_draft/`：保存中文论文草稿、章节文件、参考文献、表格/图形输入文件、LaTeX 主稿和编译输出 PDF。
+- `07_submission_package/`：保存投稿、答辩或交付所需的草稿、最终版和归档文件。
+- `08_project_admin/`：保存项目管理和复现说明，例如项目 README、changelog 和 reproducibility checklist。
 
 ## 许可证
 

@@ -45,6 +45,29 @@ This repository does not bundle or redistribute SPSS-MCP source code. Users shou
 - An MCP-capable agent client. SPSS-MCP's auto-configuration command targets Claude Code; for Codex, configure the equivalent MCP server entry so Codex can call `spss-mcp serve --transport stdio`.
 - If SPSS is not auto-detected, set `SPSS_INSTALL_PATH` as documented by SPSS-MCP. For slow startup or long analyses, configure `SPSS_STARTUP_TIMEOUT` or `SPSS_TIMEOUT`.
 
+### Codex Compatibility Example
+
+The upstream SPSS-MCP documentation primarily targets Claude Code; this repository targets Codex usage. Codex supports local STDIO MCP servers, so you can add a configuration like this to `~/.codex/config.toml` or a trusted project's `.codex/config.toml`:
+
+```toml
+[mcp_servers.spss]
+command = "spss-mcp"
+args = ["serve", "--transport", "stdio"]
+startup_timeout_sec = 300
+tool_timeout_sec = 300
+```
+
+If you need to set the SPSS path or longer timeouts manually, add:
+
+```toml
+[mcp_servers.spss.env]
+SPSS_INSTALL_PATH = "C:\\Program Files\\IBM\\SPSS Statistics\\31"
+SPSS_STARTUP_TIMEOUT = "300"
+SPSS_TIMEOUT = "300"
+```
+
+Restart Codex after configuration and confirm that the `spss` server is running in Codex's MCP status view. This workflow has been tested by the project author with Codex on Windows using a local SPSS installation; other environments depend on upstream SPSS-MCP support and the local SPSS setup.
+
 ## Install
 
 Use Codex's skill installer with the GitHub directory URL:
@@ -76,6 +99,31 @@ Use SPSS to analyze this empirical dataset and write the Chinese paper results s
 - `scripts/`: helper scripts, including a conservative project scaffolder.
 - `assets/`: reusable templates for LaTeX papers, table notes, and result sections.
 - `agents/openai.yaml`: optional Codex UI metadata and invocation policy.
+
+## Generated Project Structure
+
+When this skill is used on a concrete empirical project, it organizes outputs under the user-provided project root with these `01` to `08` directories:
+
+```text
+project-name/
+├── 01_source_data/
+├── 02_data_prep/
+├── 03_research_design/
+├── 04_spss_syntax/
+├── 05_analysis_output/
+├── 06_paper_draft/
+├── 07_submission_package/
+└── 08_project_admin/
+```
+
+- `01_source_data/`: raw data, external data, and source documentation. Raw files should stay in `raw/` and should not be overwritten or edited in place.
+- `02_data_prep/`: variable mappings, cleaned interim datasets, final analysis datasets, and audit artifacts such as codebooks, missing-value checks, and descriptive summaries.
+- `03_research_design/`: research questions, hypotheses, variable design, model design, and sample rules.
+- `04_spss_syntax/`: SPSS syntax grouped by data cleaning, variable construction, descriptive analysis, main models, robustness checks, and appendix models.
+- `05_analysis_output/`: analysis outputs, including tables, figures, result notes, run logs, and paper-ready table interfaces.
+- `06_paper_draft/`: Chinese paper drafts, section files, references, table/figure inputs, the LaTeX main file, and compiled PDF output.
+- `07_submission_package/`: draft, final, and archive files for submission, defense, or delivery.
+- `08_project_admin/`: project administration and reproducibility notes, such as a project README, changelog, and reproducibility checklist.
 
 ## License
 

@@ -72,7 +72,15 @@ Restart Codex after configuration and confirm that the `spss` server is running 
 
 ## Install
 
-Use Codex's skill installer with the GitHub directory URL:
+The recommended option is to install it for Codex with the [skills.sh](https://skills.sh/) `skills` CLI:
+
+```powershell
+npx skills add EXIST-D/spss-academic-workflow --skill spss-academic-workflow --agent codex --yes --copy
+```
+
+This command has been verified on Windows. It detects `spss-academic-workflow` in this repository and installs it into the current project's `.agents/skills/spss-academic-workflow` directory.
+
+You can also use Codex's skill installer with the GitHub directory URL:
 
 ```text
 $skill-installer install https://github.com/EXIST-D/spss-academic-workflow/tree/main/skills/spss-academic-workflow

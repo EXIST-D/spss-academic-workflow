@@ -72,7 +72,15 @@ SPSS_TIMEOUT = "300"
 
 ## 安装方式
 
-在 Codex 中使用 skill installer，并指向 GitHub 目录 URL：
+推荐使用 [skills.sh](https://skills.sh/) 的 `skills` CLI 安装到 Codex：
+
+```powershell
+npx skills add EXIST-D/spss-academic-workflow --skill spss-academic-workflow --agent codex --yes --copy
+```
+
+该命令已在 Windows 环境下验证，可识别本仓库中的 `spss-academic-workflow`，并安装到当前项目的 `.agents/skills/spss-academic-workflow`。
+
+也可以在 Codex 中使用 skill installer，并指向 GitHub 目录 URL：
 
 ```text
 $skill-installer install https://github.com/EXIST-D/spss-academic-workflow/tree/main/skills/spss-academic-workflow

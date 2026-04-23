@@ -1,0 +1,7 @@
+interface:
+  display_name: "SPSS Academic Workflow"
+  short_description: "Run SPSS empirical analysis, write Chinese results, and produce a LaTeX paper"
+  default_prompt: "Use $spss-academic-workflow to run an SPSS empirical analysis, generate Chinese result sections and tables, and produce a compilable LaTeX paper."
+
+policy:
+  allow_implicit_invocation: true

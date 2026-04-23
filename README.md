@@ -30,12 +30,27 @@ spss-academic-workflow/
 - 将统计输出整理成论文可用的表格、结果说明和中文学术写作内容。
 - 生成 LaTeX 源文件，并支持中文实证论文的 PDF 编译。
 
+## SPSS-MCP 依赖
+
+本 skill 的 SPSS-MCP 工作流使用 [Exekiel179/SPSS-MCP](https://github.com/Exekiel179/SPSS-MCP) 提供的 MCP server，将自然语言分析需求转换为 SPSS syntax，并通过本机 IBM SPSS Statistics 引擎执行分析。
+
+本仓库不内置或再分发 SPSS-MCP 源码；用户需要按 SPSS-MCP 仓库说明单独安装和配置。SPSS-MCP 当前使用 MIT License，因此可以在本 skill 中引用、说明和作为外部依赖使用。若未来把 SPSS-MCP 的源码或实质性片段复制进本仓库，请同时保留其版权声明和 MIT 许可文本。
+
+### 环境要求
+
+- Windows 10/11。
+- Python 3.10 或更高版本。
+- 本机已安装 IBM SPSS Statistics，SPSS-MCP 当前说明支持 version 20-31。
+- 已安装并可在终端运行 `spss-mcp`。
+- 当前 agent 客户端需要支持 MCP。SPSS-MCP 的自动配置命令面向 Claude Code；在 Codex 中使用时，请将等价 MCP server 配置接入 Codex，使其能够通过 `spss-mcp serve --transport stdio` 调用该服务。
+- 如果 SPSS 不能被自动检测，请按 SPSS-MCP 文档设置 `SPSS_INSTALL_PATH`；如启动或分析较慢，可设置 `SPSS_STARTUP_TIMEOUT` 或 `SPSS_TIMEOUT`。
+
 ## 安装方式
 
 在 Codex 中使用 skill installer，并指向 GitHub 目录 URL：
 
 ```text
-$skill-installer install https://github.com/<你的账号>/spss-academic-workflow/tree/main/skills/spss-academic-workflow
+$skill-installer install https://github.com/EXIST-D/spss-academic-workflow/tree/main/skills/spss-academic-workflow
 ```
 
 如果安装后没有立即出现该 skill，请重启 Codex。

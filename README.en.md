@@ -30,12 +30,27 @@ spss-academic-workflow/
 - Converts statistical outputs into paper-ready tables, result notes, and Chinese academic writing.
 - Produces LaTeX source files and supports PDF compilation for Chinese empirical papers.
 
+## SPSS-MCP Dependency
+
+This skill's SPSS-MCP workflow uses the MCP server from [Exekiel179/SPSS-MCP](https://github.com/Exekiel179/SPSS-MCP). SPSS-MCP translates natural-language analysis requests into SPSS syntax, runs them against the local IBM SPSS Statistics engine, and returns formatted results.
+
+This repository does not bundle or redistribute SPSS-MCP source code. Users should install and configure SPSS-MCP separately by following its upstream documentation. SPSS-MCP is currently licensed under the MIT License, so this skill can reference it, document it, and use it as an external dependency. If SPSS-MCP source code or substantial excerpts are copied into this repository in the future, retain its copyright notice and MIT license text.
+
+### Requirements
+
+- Windows 10/11.
+- Python 3.10 or newer.
+- IBM SPSS Statistics installed locally; SPSS-MCP currently documents support for versions 20-31.
+- `spss-mcp` installed and runnable from the terminal.
+- An MCP-capable agent client. SPSS-MCP's auto-configuration command targets Claude Code; for Codex, configure the equivalent MCP server entry so Codex can call `spss-mcp serve --transport stdio`.
+- If SPSS is not auto-detected, set `SPSS_INSTALL_PATH` as documented by SPSS-MCP. For slow startup or long analyses, configure `SPSS_STARTUP_TIMEOUT` or `SPSS_TIMEOUT`.
+
 ## Install
 
 Use Codex's skill installer with the GitHub directory URL:
 
 ```text
-$skill-installer install https://github.com/<your-account>/spss-academic-workflow/tree/main/skills/spss-academic-workflow
+$skill-installer install https://github.com/EXIST-D/spss-academic-workflow/tree/main/skills/spss-academic-workflow
 ```
 
 Restart Codex if the skill does not appear immediately.

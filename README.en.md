@@ -34,7 +34,7 @@ spss-academic-workflow/
 
 This skill's SPSS-MCP workflow uses the MCP server from [Exekiel179/SPSS-MCP](https://github.com/Exekiel179/SPSS-MCP). SPSS-MCP translates natural-language analysis requests into SPSS syntax, runs them against the local IBM SPSS Statistics engine, and returns formatted results.
 
-This repository does not bundle or redistribute SPSS-MCP source code. Users should install and configure SPSS-MCP separately by following its upstream documentation. SPSS-MCP is currently licensed under the MIT License, so this skill can reference it, document it, and use it as an external dependency. If SPSS-MCP source code or substantial excerpts are copied into this repository in the future, retain its copyright notice and MIT license text.
+This repository does not package SPSS-MCP source code or replace its installation flow. Please install and configure the MCP server locally by following the SPSS-MCP repository first. This skill uses SPSS-MCP as an external analysis interface inside a Codex workflow for SPSS analysis, result organization, and paper writing.
 
 ### Requirements
 
@@ -86,10 +86,18 @@ Invoke the skill explicitly:
 Use $spss-academic-workflow to analyze this dataset with SPSS and produce Chinese result sections, tables, LaTeX source, and a PDF.
 ```
 
-You can also ask naturally:
+You can also ask naturally. Here are a few simple templates:
 
 ```text
 Use SPSS to analyze this empirical dataset and write the Chinese paper results section.
+
+Review this dataset, suggest suitable SPSS analyses, and create the project structure with an initial analysis plan.
+
+Run descriptive statistics, reliability analysis, and regression analysis for this survey dataset, then format the results as paper tables.
+
+Use SPSS-MCP to run the main model and robustness checks, then produce Chinese result interpretation and LaTeX tables.
+
+Organize this project into a full Chinese empirical paper draft, including data, model, results, and conclusion sections.
 ```
 
 ## Included Resources

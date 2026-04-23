@@ -34,7 +34,7 @@ spss-academic-workflow/
 
 本 skill 的 SPSS-MCP 工作流使用 [Exekiel179/SPSS-MCP](https://github.com/Exekiel179/SPSS-MCP) 提供的 MCP server，将自然语言分析需求转换为 SPSS syntax，并通过本机 IBM SPSS Statistics 引擎执行分析。
 
-本仓库不内置或再分发 SPSS-MCP 源码；用户需要按 SPSS-MCP 仓库说明单独安装和配置。SPSS-MCP 当前使用 MIT License，因此可以在本 skill 中引用、说明和作为外部依赖使用。若未来把 SPSS-MCP 的源码或实质性片段复制进本仓库，请同时保留其版权声明和 MIT 许可文本。
+本仓库不会打包 SPSS-MCP 源码，也不会替代它的安装流程。使用时请先按照 SPSS-MCP 仓库说明在本机安装并配置好 MCP server。本 skill 只是把它作为外部分析接口接入 Codex 工作流，用来完成 SPSS 数据分析、结果整理和论文写作。
 
 ### 环境要求
 
@@ -86,10 +86,18 @@ $skill-installer install https://github.com/EXIST-D/spss-academic-workflow/tree/
 Use $spss-academic-workflow to analyze this dataset with SPSS and produce Chinese result sections, tables, LaTeX source, and a PDF.
 ```
 
-也可以用自然语言描述任务：
+也可以用自然语言描述任务。下面是一些简单模板：
 
 ```text
 请使用 SPSS 分析这份实证数据，并写出中文论文结果部分。
+
+请帮我查看这个数据集适合做哪些 SPSS 分析，并生成项目目录和初步分析方案。
+
+请基于这份问卷数据做描述性统计、信度分析和回归分析，并整理成论文表格。
+
+请用 SPSS-MCP 运行主模型和稳健性检验，然后输出中文结果解释和 LaTeX 表格。
+
+请把当前项目整理为完整的中文实证论文草稿，包括数据、模型、结果和结论部分。
 ```
 
 ## 包含内容

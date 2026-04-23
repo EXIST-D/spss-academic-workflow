@@ -1,15 +1,15 @@
 # SPSS Academic Workflow Skill
 
-English | [简体中文](README.zh-CN.md)
+[English](README.en.md) | 简体中文
 
-This repository packages `spss-academic-workflow`, a Codex Agent Skill for SPSS-based empirical academic research workflows. It helps an agent organize research projects, prepare datasets, design variables and models, run or guide SPSS/SPSS-MCP analyses, export tables and Chinese result paragraphs, draft Chinese LaTeX papers, and compile final PDFs.
+本仓库打包了 `spss-academic-workflow`，这是一个面向 Codex 的 Agent Skill，用于基于 SPSS 的中文实证学术研究流程。它可以帮助 agent 组织研究项目、准备数据集、设计变量和模型、运行或指导 SPSS/SPSS-MCP 分析、导出表格和中文结果段落、撰写中文 LaTeX 论文，并编译最终 PDF。
 
-## Repository Layout
+## 仓库结构
 
 ```text
 spss-academic-workflow/
 ├── README.md
-├── README.zh-CN.md
+├── README.en.md
 ├── LICENSE
 └── skills/
     └── spss-academic-workflow/
@@ -22,46 +22,46 @@ spss-academic-workflow/
         └── scripts/
 ```
 
-## What It Does
+## 功能范围
 
-- Creates a reproducible empirical research project structure.
-- Guides data preparation, variable design, sample rules, and model design.
-- Runs or documents SPSS/SPSS-MCP analyses such as descriptive statistics, correlations, regression models, robustness checks, and related empirical tests.
-- Converts statistical outputs into paper-ready tables, result notes, and Chinese academic writing.
-- Produces LaTeX source files and supports PDF compilation for Chinese empirical papers.
+- 创建可复现的实证研究项目目录结构。
+- 指导数据准备、变量设计、样本规则和模型设计。
+- 运行或记录 SPSS/SPSS-MCP 分析，包括描述性统计、相关分析、回归模型、稳健性检验及相关实证检验。
+- 将统计输出整理成论文可用的表格、结果说明和中文学术写作内容。
+- 生成 LaTeX 源文件，并支持中文实证论文的 PDF 编译。
 
-## Install
+## 安装方式
 
-Use Codex's skill installer with the GitHub directory URL:
+在 Codex 中使用 skill installer，并指向 GitHub 目录 URL：
 
 ```text
-$skill-installer install https://github.com/<your-account>/spss-academic-workflow/tree/main/skills/spss-academic-workflow
+$skill-installer install https://github.com/<你的账号>/spss-academic-workflow/tree/main/skills/spss-academic-workflow
 ```
 
-Restart Codex if the skill does not appear immediately.
+如果安装后没有立即出现该 skill，请重启 Codex。
 
-## Usage
+## 使用示例
 
-Invoke the skill explicitly:
+可以显式调用：
 
 ```text
 Use $spss-academic-workflow to analyze this dataset with SPSS and produce Chinese result sections, tables, LaTeX source, and a PDF.
 ```
 
-You can also ask naturally:
+也可以用自然语言描述任务：
 
 ```text
-Use SPSS to analyze this empirical dataset and write the Chinese paper results section.
+请使用 SPSS 分析这份实证数据，并写出中文论文结果部分。
 ```
 
-## Included Resources
+## 包含内容
 
-- `SKILL.md`: the main workflow and trigger instructions.
-- `references/`: detailed guidance for workflow routing, empirical design, SPSS-MCP usage, tool selection, paper writing, and LaTeX layout.
-- `scripts/`: helper scripts, including a conservative project scaffolder.
-- `assets/`: reusable templates for LaTeX papers, table notes, and result sections.
-- `agents/openai.yaml`: optional Codex UI metadata and invocation policy.
+- `SKILL.md`：主要 workflow 和触发说明。
+- `references/`：工作流路由、实证设计、SPSS-MCP 使用、工具选择、论文写作和 LaTeX 排版的详细参考。
+- `scripts/`：辅助脚本，包括保守的项目脚手架脚本。
+- `assets/`：LaTeX 论文、表格注释和结果段落模板。
+- `agents/openai.yaml`：可选的 Codex UI 元数据和调用策略。
 
-## License
+## 许可证
 
-This repository is licensed under the MIT License. See [LICENSE](LICENSE). The packaged skill also includes its own copy at `skills/spss-academic-workflow/LICENSE.txt`.
+本仓库使用 MIT License。详见 [LICENSE](LICENSE)。打包后的 skill 内部也包含一份许可证副本：`skills/spss-academic-workflow/LICENSE.txt`。

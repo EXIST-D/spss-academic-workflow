@@ -102,6 +102,22 @@ Use SPSS-MCP to run the main model and robustness checks, then produce Chinese r
 Organize this project into a full Chinese empirical paper draft, including data, model, results, and conclusion sections.
 ```
 
+For a full request that includes the project path, data file, analysis goal, and local environment, use this template:
+
+```text
+Use $spss-academic-workflow to run a detailed <analysis topic or model type> analysis on the data file "<data file name>" under "<project root>".
+
+Complete all work inside "<project root>".
+
+Please choose the most complete and reasonable analysis workflow, including data loading, variable inspection, missing-value checks, descriptive statistics, correlation analysis, main model estimation, diagnostic checks, robustness or supplementary analysis, and result organization for paper writing.
+
+Automatically choose the appropriate SPSS analysis workflow, output Chinese result interpretation, result tables, paper.tex, and a compilable PDF. In the final response, explain which tools were called, which key files were generated, and whether the PDF compiled successfully.
+
+Use the conda environment "<conda environment name>".
+
+The local SPSS installation directory is "<SPSS installation directory>".
+```
+
 ## Included Resources
 
 - `SKILL.md`: the main workflow and trigger instructions.

@@ -26,7 +26,9 @@ spss-academic-workflow/
 
 - Creates a reproducible empirical research project structure.
 - Guides data preparation, variable design, sample rules, and model design.
-- Runs or documents SPSS/SPSS-MCP analyses such as descriptive statistics, correlations, regression models, robustness checks, and related empirical tests.
+- Runs or documents SPSS/SPSS-MCP analyses, including descriptive statistics, frequencies and crosstabs, correlations, mean comparisons, t-tests, ANOVA, chi-square tests, reliability analysis, factor analysis, principal component analysis, cluster analysis, linear regression, hierarchical/stepwise regression, logistic regression, nonparametric tests, and common diagnostic checks.
+- Supports empirical-paper model extensions such as main-effect models, control-variable models, robustness checks, alternative-variable or alternative-sample tests, heterogeneity analysis, mechanism analysis, moderation, and mediation.
+- Recommends suitable SPSS analysis routes for exploratory tasks based on variable types, research questions, and sample conditions, while recording analysis choices, sample handling, and interpretation logic.
 - Converts statistical outputs into paper-ready tables, result notes, and Chinese academic writing.
 - Produces LaTeX source files and supports PDF compilation for Chinese empirical papers.
 

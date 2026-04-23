@@ -159,6 +159,12 @@ project-name/
 - `07_submission_package/`: draft, final, and archive files for submission, defense, or delivery.
 - `08_project_admin/`: project administration and reproducibility notes, such as a project README, changelog, and reproducibility checklist.
 
+## Author and Maintenance
+
+This project is created and maintained by [EXIST-D](https://github.com/EXIST-D).
+
+Feedback, bug reports, and improvement ideas are welcome through GitHub Issues. Pull requests are also welcome if you extend or improve this skill.
+
 ## License
 
 This repository is licensed under the MIT License. See [LICENSE](LICENSE). The packaged skill also includes its own copy at `skills/spss-academic-workflow/LICENSE.txt`.

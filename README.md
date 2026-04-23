@@ -159,6 +159,12 @@ project-name/
 - `07_submission_package/`：保存投稿、答辩或交付所需的草稿、最终版和归档文件。
 - `08_project_admin/`：保存项目管理和复现说明，例如项目 README、changelog 和 reproducibility checklist。
 
+## 作者与维护
+
+本项目由 [EXIST-D](https://github.com/EXIST-D) 创建并维护。
+
+欢迎通过 GitHub Issues 提交问题、使用反馈或改进建议。如果你基于本 skill 做了扩展，也欢迎提交 Pull Request。
+
 ## 许可证
 
 本仓库使用 MIT License。详见 [LICENSE](LICENSE)。打包后的 skill 内部也包含一份许可证副本：`skills/spss-academic-workflow/LICENSE.txt`。
